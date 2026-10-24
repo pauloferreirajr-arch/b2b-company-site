@@ -1,0 +1,34 @@
+[
+ {
+  "arquivo": "agro-trigo.jpg",
+  "titulo": "Wheat Field in Walla Walla, Washington, 2018.jpg",
+  "autor": "Jason W Lacey",
+  "licenca": "CC0",
+  "url_licenca": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Wheat_Field_in_Walla_Walla,_Washington,_2018.jpg"
+ },
+ {
+  "arquivo": "leite-vaca.jpg",
+  "titulo": "A dairy cow in Bemmel.jpg",
+  "autor": "Cultureel Gelderland",
+  "licenca": "CC0",
+  "url_licenca": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "pagina": "https://commons.wikimedia.org/wiki/File:A_dairy_cow_in_Bemmel.jpg"
+ },
+ {
+  "arquivo": "tec-codigo.jpg",
+  "titulo": "Laptop coding programs (Unsplash).jpg",
+  "autor": "Tirza van Dijk tirzavandijk",
+  "licenca": "CC0",
+  "url_licenca": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Laptop_coding_programs_(Unsplash).jpg"
+ },
+ {
+  "arquivo": "tec-servidores.jpg",
+  "titulo": "Front of server racks at NERSC.jpg",
+  "autor": "Derrick Coetzee from Berkeley, CA, USA",
+  "licenca": "CC0",
+  "url_licenca": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Front_of_server_racks_at_NERSC.jpg"
+ }
+]

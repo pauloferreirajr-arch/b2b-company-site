@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 110" width="400" height="110" role="img" aria-label="B2B COMPANY">
+<g transform="translate(5 5)">
+<rect x="46" y="10" width="4" height="80" fill="#E8EEF5"/><rect x="50" y="10" width="4" height="80" fill="#3CC5C9"/>
+<path d="M54 10 H60 A19 19 0 0 1 60 48 H54 Z" fill="#3CC5C9"/><path d="M54 52 H64 A19 19 0 0 1 64 90 H54 Z" fill="#3CC5C9"/>
+<g transform="translate(100 0) scale(-1 1)"><path d="M54 10 H60 A19 19 0 0 1 60 48 H54 Z" fill="#E8EEF5"/><path d="M54 52 H64 A19 19 0 0 1 64 90 H54 Z" fill="#E8EEF5"/></g></g>
+<text x="118" y="64" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="56" font-weight="800" letter-spacing="-1" fill="#FFFFFF">B2B</text>
+<text x="121" y="88" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#9FB0C4">COMPANY</text>
+</svg>

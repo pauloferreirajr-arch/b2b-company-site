@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 110" width="400" height="110" role="img" aria-label="B2B VENDAS &amp; SOLUÇÕES">
+<g transform="translate(-14 12) scale(.88)">
+<rect x="46" y="10" width="8" height="80" fill="#2F6B3A"/>
+<path d="M54 10 H60 A19 19 0 0 1 60 48 H54 Z" fill="#2F6B3A"/><path d="M54 52 H64 A19 19 0 0 1 64 90 H54 Z" fill="#D9962B"/>
+<path d="M54 8 C54 -4 66 -8 78 -4 C78 6 68 12 54 8 Z" fill="#D9962B"/>
+<path d="M91 3 C91 3 81 15 81 22 A10 10 0 0 0 101 22 C101 15 91 3 91 3 Z" fill="#FFFFFF" stroke="#2F6B3A" stroke-width="3" stroke-linejoin="round"/></g>
+<text x="118" y="64" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="56" font-weight="800" letter-spacing="-1" fill="#1E3A25">B2B</text>
+<text x="121" y="88" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#4F6B55">VENDAS &amp; SOLUÇÕES</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 110" width="400" height="110" role="img" aria-label="B2B TECNOLOGIA &amp; SOLUÇÕES">
+<g transform="translate(-14 5)">
+<rect x="46" y="10" width="8" height="80" fill="#5B8DFF"/>
+<path d="M54 10 H66 L79 23 V35 L66 48 H54 Z" fill="#5B8DFF"/><path d="M54 52 H68 L81 65 V77 L68 90 H54 Z" fill="#5B8DFF"/>
+<circle cx="90" cy="29" r="4.5" fill="#35D0E0"/><circle cx="92" cy="71" r="4.5" fill="#35D0E0"/>
+<path d="M79 29 H85.5 M81 71 H87.5" stroke="#35D0E0" stroke-width="3" fill="none"/></g>
+<text x="118" y="64" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="56" font-weight="800" letter-spacing="-1" fill="#FFFFFF">B2B</text>
+<text x="121" y="88" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#9FB3D9">TECNOLOGIA &amp; SOLUÇÕES</text>
+</svg>
