@@ -109,7 +109,7 @@ O protótipo só mostra "Ver no GitHub →" nos projetos 1 e 8.
 ## Início
 
 ### O que o grupo cobre
-Título: `Três frentes, uma só conversa.` (hoje a Wix mostra "Agro, leite e tecnologia")
+Título: `O que o grupo cobre` (já aplicado na Wix). Subtítulo: `Três frentes, uma só conversa.` (já existe)
 
 | Título | Descrição |
 |---|---|

@@ -23,4 +23,11 @@ As quatro fotos vêm do Wikimedia Commons e estão sob licença CC0. Os autores 
 
 ## Status
 
-Protótipo. O site publicado fica na Wix.
+O protótipo é a referência de conteúdo. O site publicado fica na Wix, em https://b2b-company.com, e foi publicado em 1 nov 2026 com as páginas Início, Vendas & Soluções, Tecnologia & Soluções e Contato.
+
+- `textos-wix.md`: textos prontos para colar no editor da Wix.
+- `pendencias-wix.md`: o que ainda falta corrigir no site publicado, em ordem de prioridade.
+
+## Segurança
+
+O repositório é público. Não há senhas, chaves ou tokens nos arquivos nem no histórico. Os únicos contatos são os e-mails comerciais do site. Não guarde credenciais aqui; o login da Wix e do GitHub ficam nas contas, fora do repositório.
