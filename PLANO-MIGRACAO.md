@@ -72,7 +72,8 @@ Site estático não envia e-mail sozinho. Caminho recomendado: uma Pages Functio
 - [ ] 👤 Descobrir quem hospeda os e-mails (Google Workspace, Microsoft, Wix/outro)
 - [ ] 🤖 Levantar todos os registros DNS atuais (`dig b2b-company.com MX/TXT/A/CNAME`, `dig www.b2b-company.com`) e salvar em `dns-antes.md`
 - [ ] 👤 Adicionar o domínio na Cloudflare e conferir se **todos** os registros MX, SPF (TXT), DKIM e DMARC foram copiados
-- [ ] 👤 Trocar os nameservers no registrador para os da Cloudflare (ou, se o domínio estiver preso na Wix, transferir o registro primeiro)
+- [ ] 👤 Trocar os nameservers para os da Cloudflare. **O domínio está registrado na Wix e a transferência só é liberada em dezembro, mas a troca de nameservers não depende disso:** na Wix, Domínios → b2b-company.com → Configurações avançadas → Name servers → informar os dois da Cloudflare. O domínio continua registrado (e renovado) na Wix; só o DNS passa para a Cloudflare
+- [ ] (Opcional, a partir de dezembro) 👤 Transferir o registro do domínio para a Cloudflare Registrar. Não é necessário para o site funcionar
 - [ ] 👤 No projeto Pages: Custom domains → `b2b-company.com` e `www.b2b-company.com`
 - [ ] 🤖 Validar: site abre com HTTPS nas duas versões, `www` redireciona para a principal, e-mail de teste chega nas três caixas
 - [ ] Fazer num dia de pouco movimento. A propagação pode levar algumas horas
@@ -81,7 +82,8 @@ Site estático não envia e-mail sozinho. Caminho recomendado: uma Pages Functio
 
 ## Etapa 6: encerrar a Wix 👤 + 🤖
 - [ ] Esperar 1 a 2 semanas com o site novo no ar e os e-mails funcionando
-- [ ] 👤 Cancelar o plano premium da Wix (sem cancelar o domínio, se ele ainda estiver registrado lá)
+- [ ] 👤 Antes de cancelar o plano premium da Wix, confirmar com a Wix se o domínio foi pago à parte ou veio "grátis" com o plano, e o que acontece com ele e com a renovação se o plano for cancelado
+- [ ] 👤 Cancelar o plano premium da Wix, mantendo o domínio ativo
 - [ ] 🤖 Mover `textos-wix.md` e `pendencias-wix.md` para `arquivo/`; atualizar `README.md` e `CLAUDE.md` (o site publicado agora é este código, publicado pela Cloudflare a cada push na `main`)
 
 ---
@@ -95,3 +97,6 @@ Site estático não envia e-mail sozinho. Caminho recomendado: uma Pages Functio
 - O repositório é público: nenhuma chave, senha ou token em arquivo ou no histórico.
 - Uma etapa por vez, com commit ao final.
 - A Wix só é desligada depois da Etapa 5 validada.
+
+## Decisão de 3 nov 2026: endereço de teste
+O domínio `b2b-company.com` continua na Wix (a transferência não foi concluída). O site novo usa `https://b2b-company-site.pages.dev` em canonical, Open Graph, `sitemap.xml` e `robots.txt`. Se o domínio for apontado para a Cloudflare no futuro, trocar esses endereços de volta (`grep -rl b2b-company-site.pages.dev .`). Não cancelar o plano da Wix enquanto o domínio depender dele.

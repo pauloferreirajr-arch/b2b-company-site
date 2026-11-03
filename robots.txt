@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://b2b-company.com/sitemap.xml
+Sitemap: https://b2b-company-site.pages.dev/sitemap.xml
