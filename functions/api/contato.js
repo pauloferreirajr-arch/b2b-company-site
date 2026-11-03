@@ -62,7 +62,7 @@ export async function onRequestPost({ request, env }) {
   } catch {
     return json({ ok: false, erro: 'Não foi possível verificar o anti-spam. Tente de novo.' }, 502);
   }
-  if (!ts.success) return json({ ok: false, erro: 'Verificação anti-spam falhou. Atualize a página e tente de novo.' }, 400);
+  if (!ts.success) return json({ ok: false, erro: 'Verificação anti-spam falhou. Atualize a página e tente de novo.', codigos: ts['error-codes'] ?? [] }, 400);
 
   const texto = [
     `Assunto: ${destino.rotulo}`,
