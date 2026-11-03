@@ -8,7 +8,7 @@ Site do grupo **B2B Company** (https://b2b-company.com), com duas empresas:
 - **B2B Tecnologia & Soluções:** portfólio de automações e estudos em Python, SQL e Claude.
 
 ## Onde as coisas estão
-- `index.html`: protótipo de página única (HTML, CSS e JS puros), é a **referência de conteúdo**.
+- `index.html`, `vendas/`, `tecnologia/`, `contato/`, `404.html`, `assets/` (css, js, favicon): site em páginas reais (HTML, CSS e JS puros), é a **referência de conteúdo**. O protótipo de página única original está no histórico do git.
 - **Site publicado:** Wix, no site chamado "Teste", páginas Início, Vendas & Soluções, Tecnologia & Soluções e Contato. Publicado em 1 nov 2026.
 - `textos-wix.md`: textos prontos para colar no editor da Wix.
 - `pendencias-wix.md`: o que falta corrigir no site publicado, por prioridade. **Atualize quando algo for resolvido.**

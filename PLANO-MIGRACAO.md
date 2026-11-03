@@ -29,30 +29,30 @@ Legenda: 🤖 o Claude Code faz · 👤 só você pode fazer (login, pagamento, 
 
 ## Etapa 1: transformar o protótipo em site de verdade 🤖
 Hoje o `index.html` tem 1,2 MB porque as quatro fotos estão embutidas em base64, e as quatro "páginas" são trocadas por JavaScript.
-- [ ] Separar em páginas reais com URL própria: `/`, `/vendas/`, `/tecnologia/`, `/contato/` (melhor para o Google e para links diretos)
-- [ ] Extrair o CSS para `assets/css/site.css` e o JS para `assets/js/site.js`
-- [ ] Trocar as imagens base64 pelos arquivos de `fotos/`, com `loading="lazy"` e `width`/`height`
-- [ ] Remover a meta `claude:viewport-fit-sides` (só servia para a pré-visualização)
-- [ ] Em cada página: `<title>` próprio, `meta description`, Open Graph (título, descrição, imagem), favicon a partir de `logos/`
-- [ ] Criar `404.html`, `robots.txt` e `sitemap.xml`
+- [x] Separar em páginas reais com URL própria: `/`, `/vendas/`, `/tecnologia/`, `/contato/` (melhor para o Google e para links diretos)
+- [x] Extrair o CSS para `assets/css/site.css` e o JS para `assets/js/site.js`
+- [x] Trocar as imagens base64 pelos arquivos de `fotos/`, com `loading="lazy"` e `width`/`height`
+- [x] Remover a meta `claude:viewport-fit-sides` (só servia para a pré-visualização)
+- [x] Em cada página: `<title>` próprio, `meta description`, Open Graph (título, descrição, imagem), favicon a partir de `logos/`
+- [x] Criar `404.html`, `robots.txt` e `sitemap.xml`
 - [ ] Conferir o resultado num navegador local (`python3 -m http.server`) em tela de celular e de desktop
 
 > **Prompt:** "Execute a Etapa 1 do PLANO-MIGRACAO.md. Preserve o visual e os textos do protótipo."
 
 ## Etapa 2: conteúdo final 🤖
 O conteúdo de referência é o `textos-wix.md`, que já tem as correções de `pendencias-wix.md`.
-- [ ] Conferir cada página contra o `textos-wix.md` e aplicar o que faltar (rodapé com os três e-mails, GitHub e créditos das fotos; Contato sem a seção "Como funciona")
-- [ ] Portfólio: link do GitHub só nos projetos 1 e 8 (regra do `CLAUDE.md`)
-- [ ] Criar a página `/privacidade/`: quais dados o formulário coleta, para quê, por quanto tempo, e como pedir exclusão (LGPD). Linkar no rodapé e embaixo do formulário
+- [x] Conferir cada página contra o `textos-wix.md` e aplicar o que faltar (rodapé com os três e-mails, GitHub e créditos das fotos; Contato sem a seção "Como funciona")
+- [x] Portfólio: link do GitHub só nos projetos 1 e 8 (regra do `CLAUDE.md`)
+- [x] Criar a página `/privacidade/`: quais dados o formulário coleta, para quê, por quanto tempo, e como pedir exclusão (LGPD). Linkar no rodapé e embaixo do formulário
 - [ ] 👤 Revisar a política de privacidade antes de publicar
 
 > **Prompt:** "Execute a Etapa 2 do PLANO-MIGRACAO.md."
 
 ## Etapa 3: formulário de contato funcionando 🤖 + 👤
 Site estático não envia e-mail sozinho. Caminho recomendado: uma Pages Function (`functions/api/contato.js`) que recebe o formulário e envia por um serviço de e-mail transacional (ex.: Resend), com anti-spam Cloudflare Turnstile.
-- [ ] 🤖 Formulário com: nome, e-mail, empresa, assunto (as três opções do `textos-wix.md`), mensagem e checkbox de ciência da política de privacidade
-- [ ] 🤖 Function que valida os campos, verifica o Turnstile e envia o e-mail para o endereço certo conforme o assunto (vendas@, tecnologia@ ou contato@)
-- [ ] 🤖 Mensagens de sucesso e de erro na página, sem recarregar
+- [x] 🤖 Formulário com: nome, e-mail, empresa, assunto (as três opções do `textos-wix.md`), mensagem e checkbox de ciência da política de privacidade
+- [x] 🤖 Function que valida os campos, verifica o Turnstile e envia o e-mail para o endereço certo conforme o assunto (vendas@, tecnologia@ ou contato@)
+- [x] 🤖 Mensagens de sucesso e de erro na página, sem recarregar
 - [ ] 👤 Criar a conta no serviço de e-mail e no Turnstile. **As chaves vão só no painel da Cloudflare (variáveis de ambiente), nunca no repositório, que é público.** Para testes locais, use `.dev.vars` (já no `.gitignore`)
 
 > **Prompt:** "Execute a Etapa 3 do PLANO-MIGRACAO.md. Me diga quais variáveis de ambiente eu preciso criar."

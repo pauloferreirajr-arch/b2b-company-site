@@ -1,0 +1,5 @@
+# Copie para .dev.vars (ignorado pelo git) e preencha. Nunca commite chaves reais.
+RESEND_API_KEY=re_xxxxxxxx
+# Chave secreta de TESTE do Turnstile (sempre aprova). Em produção, use a real no painel da Cloudflare.
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+MAIL_FROM=B2B Company <site@b2b-company.com>
