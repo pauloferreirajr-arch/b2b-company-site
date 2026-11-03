@@ -19,8 +19,9 @@ const json = (corpo, status = 200) =>
 const linha = (s) => String(s ?? '').replace(/[\r\n]+/g, ' ').trim();
 
 export async function onRequestPost({ request, env }) {
-  if (!env.RESEND_API_KEY || !env.TURNSTILE_SECRET || !env.MAIL_FROM) {
-    return json({ ok: false, erro: 'Serviço de contato não configurado.' }, 500);
+  const faltando = ['RESEND_API_KEY', 'TURNSTILE_SECRET', 'MAIL_FROM'].filter((n) => !String(env[n] ?? '').trim());
+  if (faltando.length) {
+    return json({ ok: false, erro: 'Serviço de contato não configurado.', faltando }, 500);
   }
   if (!(request.headers.get('content-type') || '').includes('application/json')) {
     return json({ ok: false, erro: 'Requisição inválida.' }, 415);
