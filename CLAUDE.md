@@ -14,6 +14,7 @@ Site do grupo **B2B Company** (https://b2b-company.com), com duas empresas:
 - `pendencias-wix.md`: o que falta corrigir no site publicado, por prioridade. **Atualize quando algo for resolvido.**
 - `logos/`, `fotos/` (CC0, créditos em `fotos/CREDITOS.json`).
 - Repositório: https://github.com/pauloferreirajr-arch/b2b-company-site (público).
+- `PLANO-MIGRACAO.md`: plano da saída da Wix. Siga a próxima etapa não marcada.
 
 ## Como trabalhar
 - Idioma: português do Brasil.
