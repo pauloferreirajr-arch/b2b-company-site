@@ -90,7 +90,11 @@ export async function onRequestPost({ request, env }) {
   } catch {
     return json({ ok: false, erro: 'Não foi possível enviar agora. Tente de novo ou escreva para contato@b2b-company.com.' }, 502);
   }
-  if (!r.ok) return json({ ok: false, erro: 'Não foi possível enviar agora. Tente de novo ou escreva para contato@b2b-company.com.' }, 502);
+  if (!r.ok) {
+    let detalhe = '';
+    try { detalhe = String((await r.json()).message ?? '').slice(0, 300); } catch {}
+    return json({ ok: false, erro: 'Não foi possível enviar agora. Tente de novo ou escreva para contato@b2b-company.com.', detalhe }, 502);
+  }
   return json({ ok: true });
 }
 
