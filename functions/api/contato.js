@@ -19,9 +19,8 @@ const json = (corpo, status = 200) =>
 const linha = (s) => String(s ?? '').replace(/[\r\n]+/g, ' ').trim();
 
 export async function onRequestPost({ request, env }) {
-  const faltando = ['RESEND_API_KEY', 'TURNSTILE_SECRET', 'MAIL_FROM'].filter((n) => !String(env[n] ?? '').trim());
-  if (faltando.length) {
-    return json({ ok: false, erro: 'Serviço de contato não configurado.', faltando }, 500);
+  if (!env.RESEND_API_KEY || !env.TURNSTILE_SECRET || !env.MAIL_FROM) {
+    return json({ ok: false, erro: 'Serviço de contato não configurado.' }, 500);
   }
   if (!(request.headers.get('content-type') || '').includes('application/json')) {
     return json({ ok: false, erro: 'Requisição inválida.' }, 415);
@@ -62,7 +61,7 @@ export async function onRequestPost({ request, env }) {
   } catch {
     return json({ ok: false, erro: 'Não foi possível verificar o anti-spam. Tente de novo.' }, 502);
   }
-  if (!ts.success) return json({ ok: false, erro: 'Verificação anti-spam falhou. Atualize a página e tente de novo.', codigos: ts['error-codes'] ?? [] }, 400);
+  if (!ts.success) return json({ ok: false, erro: 'Verificação anti-spam falhou. Atualize a página e tente de novo.' }, 400);
 
   const texto = [
     `Assunto: ${destino.rotulo}`,
@@ -91,9 +90,9 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, erro: 'Não foi possível enviar agora. Tente de novo ou escreva para contato@b2b-company.com.' }, 502);
   }
   if (!r.ok) {
-    let detalhe = '';
-    try { detalhe = String((await r.json()).message ?? '').slice(0, 300); } catch {}
-    return json({ ok: false, erro: 'Não foi possível enviar agora. Tente de novo ou escreva para contato@b2b-company.com.', detalhe }, 502);
+    // detalhe só vai para o log da Cloudflare, não para o visitante
+    console.error('Resend recusou o envio', r.status, (await r.text().catch(() => '')).slice(0, 300));
+    return json({ ok: false, erro: 'Não foi possível enviar agora. Tente de novo ou escreva para contato@b2b-company.com.' }, 502);
   }
   return json({ ok: true });
 }

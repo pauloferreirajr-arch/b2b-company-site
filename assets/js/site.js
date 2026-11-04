@@ -19,7 +19,7 @@ f.addEventListener('submit',function(e){
  .then(function(r){return r.json().catch(function(){return{ok:false}}).then(function(d){return{r:r,d:d}})})
  .then(function(x){
   if(x.r.ok&&x.d.ok){f.reset();msg('Mensagem enviada. Obrigado! Respondemos em breve.',true)}
-  else{if(x.d&&x.d.detalhe)console.warn('contato:',x.d.detalhe);msg((x.d&&x.d.erro)||'Não foi possível enviar agora. Escreva para contato@b2b-company.com.')}
+  else msg((x.d&&x.d.erro)||'Não foi possível enviar agora. Escreva para contato@b2b-company.com.')
  })
  .catch(function(){msg('Sem conexão. Tente de novo ou escreva para contato@b2b-company.com.')})
  .then(function(){btn.disabled=false;if(window.turnstile)try{turnstile.reset()}catch(_){}});

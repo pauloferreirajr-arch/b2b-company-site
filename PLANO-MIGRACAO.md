@@ -53,18 +53,21 @@ Site estático não envia e-mail sozinho. Caminho recomendado: uma Pages Functio
 - [x] 🤖 Formulário com: nome, e-mail, empresa, assunto (as três opções do `textos-wix.md`), mensagem e checkbox de ciência da política de privacidade
 - [x] 🤖 Function que valida os campos, verifica o Turnstile e envia o e-mail para o endereço certo conforme o assunto (vendas@, tecnologia@ ou contato@)
 - [x] 🤖 Mensagens de sucesso e de erro na página, sem recarregar
-- [ ] 👤 Criar a conta no serviço de e-mail e no Turnstile. **As chaves vão só no painel da Cloudflare (variáveis de ambiente), nunca no repositório, que é público.** Para testes locais, use `.dev.vars` (já no `.gitignore`)
+- [x] 👤 Criar a conta no serviço de e-mail e no Turnstile. **As chaves vão só no painel da Cloudflare (variáveis de ambiente), nunca no repositório, que é público.** Para testes locais, use `.dev.vars` (já no `.gitignore`)
 
 > **Prompt:** "Execute a Etapa 3 do PLANO-MIGRACAO.md. Me diga quais variáveis de ambiente eu preciso criar."
 
 ## Etapa 4: publicar em endereço de teste 👤 + 🤖
-- [ ] 👤 Criar conta grátis na Cloudflare
-- [ ] 👤 Workers & Pages → Create → Pages → conectar o repositório `b2b-company-site` do GitHub. Build command: vazio. Output directory: `/`
-- [ ] 👤 Cadastrar as variáveis da Etapa 3 em Settings → Environment variables
-- [ ] 🤖 Testar o endereço `*.pages.dev`: todas as páginas, links, formulário (enviar um teste para cada assunto), 404, celular
+- [x] 👤 Criar conta grátis na Cloudflare
+- [x] 👤 Workers & Pages → Create → Pages → conectar o repositório `b2b-company-site` do GitHub. Build command: vazio. Output directory: `/`
+- [x] 👤 Cadastrar as variáveis da Etapa 3 em Settings → Environment variables
+- [x] 🤖 Testar o endereço `*.pages.dev`: todas as páginas, links, formulário (enviar um teste para cada assunto), 404 — feito em 3 nov 2026 (3 envios, 200 OK). **Falta só conferir no celular e a chegada nas 3 caixas.**
 - [ ] 👤 Aprovar o resultado e fazer o merge da branch `migracao` na `main`
 
 > **Prompt:** "O site está em <URL>.pages.dev. Execute os testes da Etapa 4 e liste o que falhar."
+
+
+**Estado em 3 nov 2026:** projeto Pages `b2b-company-site` publicando a branch `migracao` em https://b2b-company-site.pages.dev. Formulário funcionando: Turnstile + Resend, domínio `b2b-company.com` verificado no Resend (DKIM, `send` e `rsend` na DNS da Wix), aliases `contato@`, `vendas@` e `tecnologia@` no Google Workspace. Falta o `_dmarc` (opcional) e a aprovação para o merge na `main`.
 
 ## Etapa 5: apontar o domínio ⚠️ etapa crítica 👤 + 🤖
 **Risco principal: derrubar os e-mails** (contato@, vendas@, tecnologia@). Se o DNS for trocado sem copiar os registros de e-mail, as mensagens param de chegar.
