@@ -35,7 +35,7 @@ Hoje o `index.html` tem 1,2 MB porque as quatro fotos estão embutidas em base64
 - [x] Remover a meta `claude:viewport-fit-sides` (só servia para a pré-visualização)
 - [x] Em cada página: `<title>` próprio, `meta description`, Open Graph (título, descrição, imagem), favicon a partir de `logos/`
 - [x] Criar `404.html`, `robots.txt` e `sitemap.xml`
-- [ ] Conferir o resultado num navegador local (`python3 -m http.server`) em tela de celular e de desktop
+- [x] Conferir o resultado num navegador local (`python3 -m http.server`) em tela de celular e de desktop
 
 > **Prompt:** "Execute a Etapa 1 do PLANO-MIGRACAO.md. Preserve o visual e os textos do protótipo."
 
@@ -44,7 +44,7 @@ O conteúdo de referência é o `textos-wix.md`, que já tem as correções de `
 - [x] Conferir cada página contra o `textos-wix.md` e aplicar o que faltar (rodapé com os três e-mails, GitHub e créditos das fotos; Contato sem a seção "Como funciona")
 - [x] Portfólio: link do GitHub só nos projetos 1 e 8 (regra do `CLAUDE.md`)
 - [x] Criar a página `/privacidade/`: quais dados o formulário coleta, para quê, por quanto tempo, e como pedir exclusão (LGPD). Linkar no rodapé e embaixo do formulário
-- [ ] 👤 Revisar a política de privacidade antes de publicar
+- [ ] 👤 Revisar a política de privacidade antes de publicar (já inclui razão social e CNPJ; falta confirmar o prazo de 12 meses)
 
 > **Prompt:** "Execute a Etapa 2 do PLANO-MIGRACAO.md."
 
@@ -71,9 +71,9 @@ Site estático não envia e-mail sozinho. Caminho recomendado: uma Pages Functio
 
 ## Etapa 5: apontar o domínio ⚠️ etapa crítica 👤 + 🤖
 **Risco principal: derrubar os e-mails** (contato@, vendas@, tecnologia@). Se o DNS for trocado sem copiar os registros de e-mail, as mensagens param de chegar.
-- [ ] 👤 Descobrir onde o domínio foi registrado (Wix ou outro registrador) e onde está o DNS hoje. No Wix: Domínios → b2b-company.com
-- [ ] 👤 Descobrir quem hospeda os e-mails (Google Workspace, Microsoft, Wix/outro)
-- [ ] 🤖 Levantar todos os registros DNS atuais (`dig b2b-company.com MX/TXT/A/CNAME`, `dig www.b2b-company.com`) e salvar em `dns-antes.md`
+- [x] 👤 Descobrir onde o domínio foi registrado (Wix ou outro registrador) e onde está o DNS hoje. No Wix: Domínios → b2b-company.com
+- [x] 👤 Descobrir quem hospeda os e-mails (Google Workspace, Microsoft, Wix/outro)
+- [x] 🤖 Levantar todos os registros DNS atuais (`dig b2b-company.com MX/TXT/A/CNAME`, `dig www.b2b-company.com`) e salvar em `dns-antes.md`
 - [ ] 👤 Adicionar o domínio na Cloudflare e conferir se **todos** os registros MX, SPF (TXT), DKIM e DMARC foram copiados
 - [ ] 👤 Trocar os nameservers para os da Cloudflare. **O domínio está registrado na Wix e a transferência só é liberada em dezembro, mas a troca de nameservers não depende disso:** na Wix, Domínios → b2b-company.com → Configurações avançadas → Name servers → informar os dois da Cloudflare. O domínio continua registrado (e renovado) na Wix; só o DNS passa para a Cloudflare
 - [ ] (Opcional, a partir de dezembro) 👤 Transferir o registro do domínio para a Cloudflare Registrar. Não é necessário para o site funcionar

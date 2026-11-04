@@ -13,6 +13,8 @@ Site do grupo **B2B Company**, com duas empresas. Endereço oficial hoje: **http
 - `textos-wix.md`: textos de referência (feitos para a Wix, já aplicados ao código).
 - `pendencias-wix.md`: pendências do site antigo da Wix. Só importa se a Wix continuar sendo o site de `b2b-company.com`.
 - `dns-antes.md`: DNS de `b2b-company.com` antes da migração (guarde, serve para conferir MX e SPF).
+- `_headers`: cabeçalhos de segurança da Cloudflare Pages (CSP, X-Frame-Options, noindex nos `.md`). Ao incluir um recurso externo novo (script, fonte, iframe), liberar o domínio na CSP.
+- **Responsável legal:** B2B Vendas & Soluções Ltda., CNPJ 58.187.240/0001-27 (aparece na política de privacidade).
 - `functions/api/contato.js`: Pages Function do formulário de contato (Turnstile + Resend). `.dev.vars.example` é o modelo das variáveis locais.
 - `logos/`, `fotos/` (CC0, créditos em `fotos/CREDITOS.json`).
 - Repositório: https://github.com/pauloferreirajr-arch/b2b-company-site (público).
