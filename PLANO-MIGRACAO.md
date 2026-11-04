@@ -61,8 +61,8 @@ Site estático não envia e-mail sozinho. Caminho recomendado: uma Pages Functio
 - [x] 👤 Criar conta grátis na Cloudflare
 - [x] 👤 Workers & Pages → Create → Pages → conectar o repositório `b2b-company-site` do GitHub. Build command: vazio. Output directory: `/`
 - [x] 👤 Cadastrar as variáveis da Etapa 3 em Settings → Environment variables
-- [x] 🤖 Testar o endereço `*.pages.dev`: todas as páginas, links, formulário (enviar um teste para cada assunto), 404 — feito em 3 nov 2026 (3 envios, 200 OK). **Falta só conferir no celular e a chegada nas 3 caixas.**
-- [ ] 👤 Aprovar o resultado e fazer o merge da branch `migracao` na `main`
+- [x] 🤖 Testar o endereço `*.pages.dev`: todas as páginas, links, formulário (enviar um teste para cada assunto), 404 — feito em 3 nov 2026 (3 envios, 200 OK). Celular e chegada nas 3 caixas conferidos pelo Paulo.
+- [x] 👤 Aprovar o resultado e fazer o merge da branch `migracao` na `main`
 
 > **Prompt:** "O site está em <URL>.pages.dev. Execute os testes da Etapa 4 e liste o que falhar."
 
