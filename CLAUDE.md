@@ -29,6 +29,13 @@ Site do grupo **B2B Company**, com duas empresas.
 - **Registro do domínio:** continua na Wix (vence 23/10/2027). Transferência para outro registrador só a partir de ~22/12/2026 (60 dias do registro) e é opcional. Não cancelar o domínio na Wix.
 - **Formulário de contato (funcionando desde 20 nov 2026):** o site do Lovable (`src/components/contact-form.tsx`) envia para `https://b2b-company-site.pages.dev/api/contato` (esta Function: Turnstile + Resend). O CORS para `b2b-company.com` e `www` está em `functions/api/_middleware.js`. O widget do Turnstile (`0x4AAAAAAFyku5v0M7Njr4_v`) tem em Hostname management: `b2b-company-site.pages.dev`, `b2b-company.com`, `www.b2b-company.com`. Teste ponta a ponta feito pelo Paulo no navegador dele (o navegador automatizado do Claude é barrado pelo Turnstile, erro 600010). **Por isso este projeto Pages não pode ser apagado** enquanto o formulário depender dele.
 
+## Site no Lovable (estado em 20 nov 2026, fim do dia)
+- **Páginas reais:** `/`, `/vendas`, `/tecnologia`, `/contato` e `/privacidade`, cada uma com título, descrição, canonical e imagem de compartilhamento (1200×630) próprios. Links antigos com hash (`/#vendas`) redirecionam. `lang="pt-BR"`, sitemap em `https://b2b-company.com/sitemap.xml`, 404 em português. Publicado e conferido no ar.
+- **Privacidade:** o formulário do Lovable agora aponta para `https://b2b-company.com/privacidade` (mesmo texto da página deste repositório). Se a política mudar, atualizar nos dois lugares.
+- **Código:** a página fica em `src/components/site-page.tsx` (`SitePage` + `siteHead`); as rotas em `src/routes/`.
+- **Pendente:** botão flutuante de WhatsApp (código pronto e testado, aguardando aplicação no Lovable) e a conexão do Lovable com o GitHub (iniciada, mas nenhum repositório foi criado; sem ela, toda mudança no site gasta créditos do Lovable).
+- **Playbook interno** (como replicar este site para clientes): fica no Drive, em `05_TI_Interna/Site_b2b-company`.
+
 ## Hospedagem e domínio (histórico, estado em 3 nov 2026)
 - **Cloudflare Pages**, projeto `b2b-company-site`, conectado a este repositório. **Production branch: `main`**: cada push na `main` publica em https://b2b-company-site.pages.dev. Build command vazio, output `/`. Outras branches viram preview.
 - **Domínio `b2b-company.com`:** registrado na Wix (registro de 23/10/2026), com o **DNS na Wix** (`ns0/ns1.wixdns.net`) e ainda apontando para o site da Wix. A transferência para a Cloudflare não foi concluída, então a Etapa 5 do plano (apontar o domínio) está adiada. Se for retomada, trocar `https://b2b-company-site.pages.dev` por `https://b2b-company.com` em canonical, Open Graph, `sitemap.xml` e `robots.txt`.
