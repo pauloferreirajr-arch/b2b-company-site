@@ -3,7 +3,9 @@
 Contexto fixo do projeto. Leia antes de qualquer tarefa.
 
 ## O que é
-Site do grupo **B2B Company**, com duas empresas. Endereço oficial hoje: **https://b2b-company-site.pages.dev** (o domínio `b2b-company.com` ainda aponta para a Wix, ver "Hospedagem e domínio").
+Site do grupo **B2B Company**, com duas empresas.
+
+> **⚠️ Desde 20 nov 2026 o site oficial NÃO é este repositório.** `https://b2b-company.com` (e `www`) aponta para o site feito no **Lovable** (projeto `7a36bf30-9989-4e4d-8909-30d267b3cbe8`, editor https://lovable.dev/projects/7a36bf30-9989-4e4d-8909-30d267b3cbe8). Mudanças no site são feitas no Lovable. Este repositório (Cloudflare Pages, `b2b-company-site.pages.dev`) ficou como versão anterior e referência do formulário (Turnstile + Resend). Ver "Hospedagem e domínio".
 - **B2B Vendas & Soluções:** intermediação de ingredientes alimentícios, commodities e laticínios para a indústria de alimentos e o agro.
 - **B2B Tecnologia & Soluções:** portfólio de automações e estudos em Python, SQL e Claude.
 
@@ -20,7 +22,14 @@ Site do grupo **B2B Company**, com duas empresas. Endereço oficial hoje: **http
 - Repositório: https://github.com/pauloferreirajr-arch/b2b-company-site (público).
 - `PLANO-MIGRACAO.md`: plano da saída da Wix. Siga a próxima etapa não marcada.
 
-## Hospedagem e domínio (estado em 3 nov 2026)
+## Hospedagem e domínio (estado em 20 nov 2026)
+- **Site oficial: Lovable.** Publicado e com domínio próprio conectado em Lovable → Settings → Domains (exige plano pago do Lovable).
+- **Sem troca de nameservers:** o DNS continua na Wix (`ns0/ns1.wixdns.net`; Wix → Domínios → ⋮ → Manage DNS records). Em 20 nov 2026: A `@` e A `www` → `185.158.133.1` (Lovable) e TXT `_lovable` (verificação). Os A da Wix (185.230.63.x) e o www da Wix foram substituídos.
+- **Não mexer:** 5 MX do Google, TXT SPF, `_dmarc` (`v=DMARC1; p=none;`), `resend._domainkey`, `send` e `rsend` (Resend). Conferido com `dig` após a troca: intactos.
+- **Registro do domínio:** continua na Wix (vence 23/10/2027). Transferência para outro registrador só a partir de ~22/12/2026 (60 dias do registro) e é opcional. Não cancelar o domínio na Wix.
+- **Formulário de contato (funcionando desde 20 nov 2026):** o site do Lovable (`src/components/contact-form.tsx`) envia para `https://b2b-company-site.pages.dev/api/contato` (esta Function: Turnstile + Resend). O CORS para `b2b-company.com` e `www` está em `functions/api/_middleware.js`. O widget do Turnstile (`0x4AAAAAAFyku5v0M7Njr4_v`) tem em Hostname management: `b2b-company-site.pages.dev`, `b2b-company.com`, `www.b2b-company.com`. Teste ponta a ponta feito pelo Paulo no navegador dele (o navegador automatizado do Claude é barrado pelo Turnstile, erro 600010). **Por isso este projeto Pages não pode ser apagado** enquanto o formulário depender dele.
+
+## Hospedagem e domínio (histórico, estado em 3 nov 2026)
 - **Cloudflare Pages**, projeto `b2b-company-site`, conectado a este repositório. **Production branch: `main`**: cada push na `main` publica em https://b2b-company-site.pages.dev. Build command vazio, output `/`. Outras branches viram preview.
 - **Domínio `b2b-company.com`:** registrado na Wix (registro de 23/10/2026), com o **DNS na Wix** (`ns0/ns1.wixdns.net`) e ainda apontando para o site da Wix. A transferência para a Cloudflare não foi concluída, então a Etapa 5 do plano (apontar o domínio) está adiada. Se for retomada, trocar `https://b2b-company-site.pages.dev` por `https://b2b-company.com` em canonical, Open Graph, `sitemap.xml` e `robots.txt`.
 - **Não cancelar o plano da Wix nem o domínio** sem antes apontar o domínio para a Cloudflare: o site, o DNS e os e-mails dependem dela.

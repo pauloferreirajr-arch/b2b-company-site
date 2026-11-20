@@ -70,6 +70,8 @@ Site estático não envia e-mail sozinho. Caminho recomendado: uma Pages Functio
 **Estado em 3 nov 2026:** projeto Pages `b2b-company-site` publicando a branch `migracao` em https://b2b-company-site.pages.dev. Formulário funcionando: Turnstile + Resend, domínio `b2b-company.com` verificado no Resend (DKIM, `send` e `rsend` na DNS da Wix), aliases `contato@`, `vendas@` e `tecnologia@` no Google Workspace. Falta o `_dmarc` (opcional) e a aprovação para o merge na `main`.
 
 ## Etapa 5: apontar o domínio ⚠️ etapa crítica 👤 + 🤖
+
+> **Concluída de outro jeito em 20 nov 2026:** o site final foi feito e publicado no **Lovable**, e o domínio foi conectado lá, sem trocar nameservers. Na DNS da Wix: A `@` e A `www` → `185.158.133.1` e TXT `_lovable`. E-mail (MX, SPF, DMARC) e Resend intactos, conferidos com `dig`; `https://b2b-company.com` responde 200 e `www` redireciona. Os itens abaixo (Cloudflare) ficaram como histórico e não serão feitos. Formulário do Lovable ligado à Function `/api/contato` deste projeto (CORS + Turnstile com o domínio novo) e testado ponta a ponta em 20 nov 2026. Ver `CLAUDE.md`.
 **Risco principal: derrubar os e-mails** (contato@, vendas@, tecnologia@). Se o DNS for trocado sem copiar os registros de e-mail, as mensagens param de chegar.
 - [x] 👤 Descobrir onde o domínio foi registrado (Wix ou outro registrador) e onde está o DNS hoje. No Wix: Domínios → b2b-company.com
 - [x] 👤 Descobrir quem hospeda os e-mails (Google Workspace, Microsoft, Wix/outro)
