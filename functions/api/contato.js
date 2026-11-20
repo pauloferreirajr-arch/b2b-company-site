@@ -18,6 +18,11 @@ const json = (corpo, status = 200) =>
 
 const linha = (s) => String(s ?? '').replace(/[\r\n]+/g, ' ').trim();
 
+// Sites onde o widget do Turnstile pode ser resolvido: o oficial (Lovable) e este projeto (produção e previews)
+const HOSTNAMES = new Set(['b2b-company.com', 'www.b2b-company.com', 'b2b-company-site.pages.dev']);
+const hostnamePermitido = (h) =>
+  typeof h === 'string' && (HOSTNAMES.has(h) || h.endsWith('.b2b-company-site.pages.dev'));
+
 export async function onRequestPost({ request, env }) {
   if (!env.RESEND_API_KEY || !env.TURNSTILE_SECRET || !env.MAIL_FROM) {
     return json({ ok: false, erro: 'Serviço de contato não configurado.' }, 500);
@@ -62,6 +67,11 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, erro: 'Não foi possível verificar o anti-spam. Tente de novo.' }, 502);
   }
   if (!ts.success) return json({ ok: false, erro: 'Verificação anti-spam falhou. Atualize a página e tente de novo.' }, 400);
+  // O token só vale se o Turnstile foi resolvido num dos nossos sites (evita reaproveitar tokens de outro lugar)
+  if (!hostnamePermitido(ts.hostname)) {
+    console.error('Turnstile resolvido em hostname não permitido', ts.hostname);
+    return json({ ok: false, erro: 'Verificação anti-spam falhou. Atualize a página e tente de novo.' }, 400);
+  }
 
   const texto = [
     `Assunto: ${destino.rotulo}`,
